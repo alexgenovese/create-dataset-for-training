@@ -10,8 +10,6 @@ def main():
     print("---- M1 GPU Acceleration ---")
     print(torch.backends.mps.is_available())
 
-    dataset = load_dataset("Abrumu/Fashion_controlnet_dataset_V3")
-
     processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
     model = Blip2Model.from_pretrained("Salesforce/blip2-opt-2.7b", torch_dtype=torch.float16)
     device = "cuda" if torch.cuda.is_available() else "cpu"
